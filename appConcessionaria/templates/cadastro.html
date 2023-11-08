@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+</head>
+<body>
+<div class='container'>
+  <div class='card'>
+    <h1> Cadastrar </h1>
+    
+    <div id='msgError'></div>
+    <div id='msgSuccess'></div>
+            <form action="{%url 'cadastro' %}" method="post" class="formCadastro" autocomplete="off">
+               {% csrf_token %}
+               
+            <div class="label-float">
+
+               <input type="text" id="nome" placeholder=" " required name="first_name">
+               <label id="labelNome" for="nome">Nome</label>
+            </div>
+
+            <div class="label-float">
+               <input type="text" id="cpf" placeholder=" " required name="username">
+               <label id="labelcpf" for="cpf">CPF</label>
+            </div>
+            
+            <div class="label-float">
+               <input type="password" id="senha" placeholder=" " required name="senha">
+               <label id="labelSenha" for="senha">Senha</label>
+                <input type="password" id="confirmSenha" placeholder=" " required>
+               <label class="labelNome" id="labelConfirmSenha" for="confirmSenha">Confirmar Senha</label>
+
+
+            </div>
+
+            
+            <div class='justify-center'>
+               
+               <button onclick='cadastrar()' type="submit">Cadastrar</button>
+           
+            </div>
+         </form>
+    
+  </div>
+  </div>
+</body>
+</html>

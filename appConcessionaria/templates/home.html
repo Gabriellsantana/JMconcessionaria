@@ -1,0 +1,231 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JM Concessionária</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+
+       <!-- link js -->
+   
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- navbar -->
+    <header>    
+        <!-- nav container -->
+        <div class="nav container">
+            <!-- menu icon -->
+            <i class='bx bx-menu' id="menu-icone"></i>
+            <!-- logo -->
+            <a href="" class="logo">JM <span>Concessionária</span></a>
+            <!-- nav list -->
+            <ul class="navbar">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#carros">Carros</a></li>
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="{% url 'contato' %}">Contatos</a></li>
+                <li><a href="{% url 'perfil' %}">Cadastrar</a></li>
+            </ul>
+
+
+            <div class="search-box">
+                <input type="search" class="search-txt" placeholder="Procure aqui...">
+                <a href="#" class="search-btn">
+                    <img src="{% static 'images/icons8-search.svg' %}" alt="lupa" height="30" width="30">
+                </a>
+            </div>
+
+
+            <!-- Icone usuario -->
+        <li>
+            <a href=".{% url 'login' %}">
+            <i class='bx bxs-user' id="icone-usuario"></i>
+           
+        </a>
+        </li>
+
+
+            <!-- Icone vendedor
+            <li>
+                <a href=".{% url 'login' %}">
+                <i class='bx bxs-user' id="icone-vendedor"></i>
+               
+            </a>
+            </li>
+           
+            </i> -->
+        </div>
+    </header>
+
+
+    <!-- home -->
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>Tudo que você precisa<br> está aqui</h1>
+            <p></p>
+
+
+            <!-- home botão -->
+            <a href="#carros" class="btn">Clique aqui</a>
+        </div>
+    </section>
+     <!-- carros -->
+    
+     <!-- <h1>Lista de Veiculos</h1>
+     <div class="card-container">
+        
+        {% for veiculo in veiculos %}
+        <div class="card-item">
+            <h3>{{ veiculo.marca}}  {{ veiculo.modelo }}</h3>
+            <h5>Ano De fabricação: {{ veiculo.ano }}</h5>
+            <h5>Preço : R$ {{ veiculo.valor }}</h5>
+            <img src="{{ veiculo.imagem.url }}" alt=" {{ veiculo.nome }}" class="img-card">
+        </div>
+        {% endfor %}
+     </div> -->
+
+     <section class="carros" id="carros">
+       <div class="cabecalho">
+        <span> Todos os carros </span>
+        <h2>Temos todos tipos de carros </h2>
+        <p> Confiança e credibilidade em um só lugar. </p>
+       </div>
+     </section>
+     <!-- carros container -->
+    <section class="carros-container container">
+        <!-- box 1 -->
+        <div class="card-container">
+           
+           {% for veiculo in veiculos %}
+           <div class="box">
+<!--             
+               <h3>{{ veiculo.marca}}  {{ veiculo.modelo }}</h3>
+               <h5>Ano De fabricação: {{ veiculo.ano }}</h5>
+               <h5>Preço : R$ {{ veiculo.valor }}</h5> -->
+               <h3>R$ {{veiculo.valor}}</h3>
+               <img src="{{ veiculo.imagem.url }}" alt=" {{ veiculo.nome }}" class="img-car">
+               <h2>{{veiculo.marca}} {{veiculo.modelo}}</h2>
+           </div>
+           {% endfor %}
+        </div>
+
+
+
+        <!-- <div class="box">
+            <img src="{% static 'images/car1.jpg' %}" alt="" srcset="">
+            <h2>Porche</h2>
+        </div> -->
+
+
+         <!-- box 2 -->
+
+         {% for veiculo in veiculos %}
+         <div class="box">
+             <!-- <h3 class="h3">{{ veiculo.marca}}  {{ veiculo.modelo }}</h3>
+             <h5>Ano De fabricação: {{ veiculo.ano }}</h5>
+             <h5>Preço : R$ {{ veiculo.valor }}</h5> -->
+
+             <h3>R$ {{veiculo.valor}}</h3>
+             <img src="{{ veiculo.imagem.url }}" alt=" {{ veiculo.nome }}" class="img-car">
+             <h2>{{veiculo.marca}} {{veiculo.modelo}}</h2>
+             
+            </div>
+             
+   
+         {% endfor %}
+         <!-- <div class="box">
+            <img src="{% static 'images/car2.jpg' %}" alt="" srcset="">
+            <h2>Porche</h2> -->
+        </div>
+
+
+         <!-- box 3 -->
+         <!-- <div class="box">
+            <img src="{% static 'images/car3.jpg' %}" alt="" srcset="">
+            <h2>Porche</h2>
+        </div> -->
+
+
+         <!-- box 4 -->
+         <!-- <div class="box">
+            <img src="{% static 'images/car4.jpg' %}" alt="" srcset="">
+            <h2>Porche</h2>
+        </div> -->
+
+
+         <!-- box 5 -->
+         <!-- <div class="box">
+            <img src="{% static 'images/car5.jpg' %}" alt="" srcset="">
+            <h2>Porche</h2>
+        </div> -->
+
+
+         <!-- box 6 -->
+         <!-- <div class="box">
+            <img src="{% static 'images/car6.jpg' %}" alt="" srcset="">
+            <h2>Porche</h2>
+        </div> -->
+    </section>
+
+
+    <!-- sobre -->
+    <section class="sobre container" id="sobre">
+        <div class="sobre-img">
+            <img src="{% static 'images/about.png' %}" alt="" srcset="">
+        </div>
+        <div class="sobre-texto">
+            <span>Sobre nós</span>
+            <h2>Preços baixos com <br> carros de qualidade</h2>
+            <!--<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolores iste, doloremque repellendus amet ipsa natus consequatur fugit excepturi alias est eaque distinctio nesciunt ullam eum aliquid inventore eligendi in?</p>-->
+
+
+            <!-- sobre botão -->
+            <a href="#" class="btn">Saiba mais</a>
+
+
+        </div>
+    </section>
+   
+    
+
+
+    <!-- footer -->
+
+
+    <section class="footer">
+        <div class="footer-container container">
+            <div class="footer-box">
+                <a href="#" class="logo">JM <span>Concessionária</span></a>
+                <div class="social">
+                    <a href=""><i class='bx bxl-facebook-square'></i></a>
+                    <a href=""><i class='bx bxl-twitter'></i></a>
+                    <a href=""><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+            <div class="footer-box" id="contato">
+                <h3>Contatos</h3>
+                <p> (75) 99999-7888</p></i>
+                <p> (75) 99999-7888</p></i>
+            </div>
+
+
+            <div class="footer-box">
+                <h3>Ajuda</h3>
+                <a href="">Fale conosco</a>
+                <a href="">Politica de privacidade</a>
+            </div>
+        </div>
+    </section>
+
+
+ 
+</body>
+</html>
+
+
+<script src="{% static 'js/home.js' %}"></script>
+    <!-- <li><a href="{% url 'contato' %}">Contatos</a></li> -->
